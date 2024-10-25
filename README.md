@@ -40,6 +40,9 @@ poetry add django
 max-line-length = 119
 ```
 
-
+5. Создайте приложение catalog, используя код ниже
+```commandline
+ python manage.py startapp catalog
+```
 
 # Модули
