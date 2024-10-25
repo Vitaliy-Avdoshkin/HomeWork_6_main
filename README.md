@@ -28,21 +28,9 @@ poetry env
 poetry add django
 ```
 
-3. Создайте файл .flake8 для настройки библиотеки flak8
 
-
-4. Настройте установленные библиотеки, используя кода ниже
-
-Файл .flake8
-
-```
-[flake8]
-max-line-length = 119
-```
-
-5. Создайте приложение catalog, используя код ниже
+3. Создайте приложение catalog, используя код ниже
 ```commandline
  python manage.py startapp catalog
 ```
 
-# Модули
