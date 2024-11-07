@@ -29,7 +29,7 @@ poetry add django
 ```
 - библиотека psycopg2
 ```commandline
-poetry add psycopg2
+poetry add psycopg2-binary
 ```
 или
 ```
