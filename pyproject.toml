@@ -10,7 +10,11 @@ python = "^3.12"
 django = "^5.1.2"
 psycopg2 = "^2.9.10"
 python-dotenv = "^1.0.1"
+black = "^24.10.0"
 
+
+[tool.poetry.group.lint.dependencies]
+black = "^24.10.0"
 
 [build-system]
 requires = ["poetry-core"]
