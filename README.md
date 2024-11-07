@@ -31,11 +31,18 @@ poetry add django
 ```commandline
 poetry add psycopg2
 ```
+или
+```
+pip install psycopg2
+```
 - библиотека dotenv
 ```commandline
 poetry add python-dotenv
 ```
-
+или
+```
+pip install python-dotenv
+```
 3. Создайте приложение catalog, используя код ниже
 ```commandline
  python manage.py startapp catalog
