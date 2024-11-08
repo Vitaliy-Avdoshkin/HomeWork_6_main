@@ -1,6 +1,12 @@
 from django.db import models
 
 
+import django
+from django.conf import settings
+
+if not settings.configured:
+    django.setup()
+
 class Category(models.Model):
     name = models.CharField(
         max_length=100,
@@ -46,7 +52,10 @@ class Product(models.Model):
         blank=True,
         related_name="Product",
     )
-    purchase_price = models.IntegerField()
+    purchase_price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+    )
     created_at = models.DateField(
         blank=True,
         null=True,
