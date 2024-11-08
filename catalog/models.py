@@ -1,14 +1,34 @@
 from django.db import models
 
 
+class Category(models.Model):
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Наименование категории",
+        help_text="Введите наименование категории",
+    )
+    description = models.CharField(
+        max_length=100,
+        verbose_name="Описание категории",
+        help_text="Введите описание категории",
+    )
+
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     name = models.CharField(
-        max_lenght=100,
+        max_length=100,
         verbose_name="Наименование",
         help_text="Введите наименование продукта",
     )
     description = models.CharField(
-        max_lenght=100, verbose_name="Описание", help_text="Введите описание продукта"
+        max_length=100, verbose_name="Описание", help_text="Введите описание продукта"
     )
     photo = models.ImageField(
         upload_to="catalog/photo",
@@ -18,6 +38,7 @@ class Product(models.Model):
         help_text="Загрузите фото продукта",
     )
     category = models.ForeignKey(
+        Category,
         on_delete=models.SET_NULL,
         verbose_name="Категория",
         help_text="Пожалуйста, укажите категорию продукта",
@@ -43,26 +64,6 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["name", "purchase_price", "created_at"]
-
-    def __str__(self):
-        return self.name
-
-
-class Category(models.Model):
-    name = models.CharField(
-        max_lenght=100,
-        verbose_name="Наименование категории",
-        help_text="Введите наименование категории",
-    )
-    description = models.CharField(
-        max_lenght=100,
-        verbose_name="Описание категории",
-        help_text="Введите описание категории",
-    )
-
-    class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
 
     def __str__(self):
         return self.name

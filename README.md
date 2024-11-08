@@ -30,18 +30,18 @@ poetry add django
 - библиотека psycopg2
 ```commandline
 poetry add psycopg2-binary
-```
 или
-```
 pip install psycopg2
 ```
 - библиотека dotenv
 ```commandline
 poetry add python-dotenv
-```
 или
-```
 pip install python-dotenv
+```
+- библиотека Pillow
+```commandline
+poetry add pillow
 ```
 3. Создайте приложение catalog, используя код ниже
 ```commandline
