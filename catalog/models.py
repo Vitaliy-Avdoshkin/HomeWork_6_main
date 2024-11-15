@@ -1,11 +1,13 @@
 from django.db import models
+# import os
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+# import django
+#
+# from django.conf import settings
+#
+# if not settings.configured:
+#     django.setup()
 
-
-import django
-from django.conf import settings
-
-if not settings.configured:
-    django.setup()
 
 class Category(models.Model):
     name = models.CharField(
@@ -22,6 +24,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+        app_label = "catalog"
 
     def __str__(self):
         return self.name
@@ -73,6 +76,7 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["name", "purchase_price", "created_at"]
+
 
     def __str__(self):
         return self.name
