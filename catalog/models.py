@@ -1,4 +1,5 @@
 from django.db import models
+
 # import os
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 # import django
@@ -76,7 +77,6 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["name", "purchase_price", "created_at"]
-
 
     def __str__(self):
         return self.name
