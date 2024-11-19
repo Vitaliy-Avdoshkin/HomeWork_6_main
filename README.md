@@ -22,13 +22,27 @@ git clone https://github.com/Vitaliy-Avdoshkin/vitaliy_avdoshkin_CourseWork_5
 poetry env
 ```
 
-2. Установите библиотеку django, используя следующую команду
-
+2. Установите следующие библиотеки, используя соответствующие команды:
+ - библиотека django
 ```commandline
 poetry add django
 ```
-
-
+- библиотека psycopg2
+```commandline
+poetry add psycopg2-binary
+или
+pip install psycopg2
+```
+- библиотека dotenv
+```commandline
+poetry add python-dotenv
+или
+pip install python-dotenv
+```
+- библиотека Pillow
+```commandline
+poetry add pillow
+```
 3. Создайте приложение catalog, используя код ниже
 ```commandline
  python manage.py startapp catalog
