@@ -1,10 +1,10 @@
 from django.shortcuts import render
-# from catalog.models import Product
+from catalog.models import Product
 
 # def products_list(request):
 #     products = Product.objects.all()
 #     context = {'products': products}
-#     return render(request, "products_list.html", context)
+#     return render(request, "home.html", context)
 
 
 def home(request):
