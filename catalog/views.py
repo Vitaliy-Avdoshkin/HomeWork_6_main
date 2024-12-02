@@ -11,8 +11,8 @@ def home(request):
 def contacts(request):
     return render(request, "contacts.html")
 
+
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {"products": product}
     return render(request, "product_details.html", context)
-
