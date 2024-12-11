@@ -14,7 +14,7 @@ class BlogPostListView(ListView):
 
 class BlogPostCreateView(CreateView):
     model = BlogPost
-    fields = ("title", "description", 'image')
+    fields = ("title", "description", "image")
     success_url = reverse_lazy("blog:blog_list")
 
     def get_object(self, queryset=None):

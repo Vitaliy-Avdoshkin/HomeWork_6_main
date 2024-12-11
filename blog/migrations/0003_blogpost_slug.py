@@ -6,14 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0002_remove_blogpost_published_blogpost_is_published'),
+        ("blog", "0002_remove_blogpost_published_blogpost_is_published"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blogpost',
-            name='slug',
-            field=models.SlugField(default=2, help_text='slug', max_length=100, verbose_name='slug'),
+            model_name="blogpost",
+            name="slug",
+            field=models.SlugField(
+                default=2, help_text="slug", max_length=100, verbose_name="slug"
+            ),
             preserve_default=False,
         ),
     ]
