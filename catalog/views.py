@@ -1,12 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
-from django.views.generic import (
-    ListView,
-    DetailView,
-    TemplateView,
-    CreateView,
-    DeleteView,
-)
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  TemplateView)
 
 from catalog.forms import ProductForm
 from catalog.models import Product

@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+
 from blog.models import BlogPost
-from django.urls import reverse_lazy, reverse
 
 
 class BlogPostListView(ListView):
