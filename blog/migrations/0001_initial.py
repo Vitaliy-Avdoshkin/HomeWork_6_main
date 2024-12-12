@@ -7,24 +7,47 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='BlogPost',
+            name="BlogPost",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=150, verbose_name='Заголовок блога')),
-                ('description', models.TextField(null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='images/', verbose_name='Изображение')),
-                ('created_at', models.DateField(auto_now_add=True)),
-                ('published', models.BooleanField(default=False)),
-                ('views_counter', models.PositiveIntegerField(default=0, verbose_name='Количество просмотров')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=150, verbose_name="Заголовок блога"),
+                ),
+                ("description", models.TextField(null=True)),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                ("created_at", models.DateField(auto_now_add=True)),
+                ("published", models.BooleanField(default=False)),
+                (
+                    "views_counter",
+                    models.PositiveIntegerField(
+                        default=0, verbose_name="Количество просмотров"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'блог',
-                'verbose_name_plural': 'блоги',
+                "verbose_name": "блог",
+                "verbose_name_plural": "блоги",
             },
         ),
     ]
