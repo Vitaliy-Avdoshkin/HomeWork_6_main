@@ -66,7 +66,7 @@ class Product(models.Model):
         verbose_name="Дата последнего изменения",
         help_text="Укажите дату последнего изменения",
     )
-    # publication_status = models.BooleanField(default=False, verbose_name="Опубликовано")
+    publication_status = models.BooleanField(default=False, verbose_name="Опубликовано")
     # owner = models.ForeignKey(
     #     User,
     #     verbose_name="Пользователь",
@@ -79,7 +79,10 @@ class Product(models.Model):
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
-        ordering = ["name", "purchase_price", "created_at"]
+        ordering = ["name", "purchase_price", "created_at", "publication_status"]
+        permissions = [
+            ("can_unpublish_product", "can unpublish product"),
+        ]
 
     def __str__(self):
         return self.name
