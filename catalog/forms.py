@@ -30,6 +30,7 @@ class ProductForm(forms.ModelForm):
             "purchase_price",
             "created_at",
         ]
+        exclude = ["publication_status"]
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -88,8 +89,9 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ["name", "description"]
 
+
 class ProductModeratorForm(ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
-        exclude = ['publication_status']
+        fields = "__all__"
+        exclude = ["publication_status"]

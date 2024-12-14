@@ -67,21 +67,22 @@ class Product(models.Model):
         help_text="Укажите дату последнего изменения",
     )
     publication_status = models.BooleanField(default=False, verbose_name="Опубликовано")
-    # owner = models.ForeignKey(
-    #     User,
-    #     verbose_name="Пользователь",
-    #     help_text="Укажите пользователя продукта",
-    #     blank=True,
-    #     null=True,
-    #     on_delete=models.SET_NULL,
-    # )
+    owner = models.ForeignKey(
+        User,
+        verbose_name="Пользователь",
+        help_text="Укажите пользователя продукта",
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+    )
 
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["name", "purchase_price", "created_at", "publication_status"]
         permissions = [
-            ("can_unpublish_product", "can unpublish product"),
+            ("can_unpublish_product", "Can unpublish product"),
+            ("can_delete_product", "Can delete product"),
         ]
 
     def __str__(self):
