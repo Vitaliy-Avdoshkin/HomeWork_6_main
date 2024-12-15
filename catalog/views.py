@@ -40,7 +40,7 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
     context_object_name = "product"
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = "catalog/product_delete.html"
     success_url = reverse_lazy("catalog:home")
