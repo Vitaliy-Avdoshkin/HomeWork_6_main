@@ -164,3 +164,13 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379/1",
     }
 }
+
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CASHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": "redis://localhost:6379",
+        }
+    }
