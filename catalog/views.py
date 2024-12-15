@@ -63,7 +63,6 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             return self.object
         raise PermissionDenied("У Вас отсутствуют права, обратитесь к администратору!")
 
-
     def get_form_class(self):
         user = self.request.user
         if user == self.object.owner:
@@ -71,7 +70,6 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         if user.has_perm("catalog.can_unpublish_product"):
             return ProductModeratorForm
         raise PermissionDenied("У Вас отсутствуют права, обратитесь к администратору!")
-
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
