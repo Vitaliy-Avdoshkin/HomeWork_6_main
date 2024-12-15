@@ -29,8 +29,9 @@ class ProductForm(forms.ModelForm):
             "category",
             "purchase_price",
             "created_at",
+            "publication_status",
         ]
-        exclude = ["publication_status"]
+        # exclude = ["publication_status"]
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)

@@ -79,7 +79,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
-        ordering = ["name", "purchase_price", "created_at", "publication_status"]
+        ordering = ["name", "purchase_price", "created_at"]
         permissions = [
             ("can_unpublish_product", "Can unpublish product"),
             ("can_delete_product", "Can delete product"),
