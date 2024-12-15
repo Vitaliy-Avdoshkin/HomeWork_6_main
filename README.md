@@ -48,3 +48,4 @@ poetry add pillow
  python manage.py startapp catalog
 ```
 
+
