@@ -12,6 +12,7 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Alienstore</h5>
     <nav class="ms-5">
         <a class="p-2 btn btn-outline-primary" href="/">Каталог</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:category' %}" role="button">Категории</a>
         <a class="p-2 btn btn-outline-primary" href="/contacts/">Контакты</a>
         <a class="p-2 btn btn-outline-primary" href="/blog/">Блог</a>
         {% if user.is_authenticated %}
@@ -29,6 +30,7 @@
     <h1 class="display-4">Alienstore</h1>
     <p class="lead">Alienstore - покупай продукты для себя и своих соседей (даже если они не с твоей планеты)</p>
     <a class="btn btn-primary" href="{% url 'catalog:product_create'%}" role="button">Добавить продукт</a></div>
+
 
 {% block content %}
 {% endblock %}
