@@ -34,7 +34,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         user = self.request.user
         product.owner = user
         product.save()
-        return super().form_valid(form)
+        return super().form_valid(form)1
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
