@@ -37,6 +37,13 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class ProductUpdateView(LoginRequiredMixin, CreateView):
+    model = Product
+    form_class = ProductForm
+    template_name = "catalog/product_form.html"
+    success_url = reverse_lazy("catalog:home")
+
+
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = "catalog/product_detail.html"
@@ -71,7 +78,6 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         if user.has_perm("catalog.can_unpublish_product"):
             return ProductModeratorForm
         raise PermissionDenied("У Вас отсутствуют права, обратитесь к администратору!")
-
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
