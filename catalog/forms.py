@@ -2,6 +2,7 @@ import datetime
 
 from django import forms
 from django.core.exceptions import ValidationError
+from django.forms import ModelForm
 
 from catalog.models import Category, Product
 
@@ -28,7 +29,9 @@ class ProductForm(forms.ModelForm):
             "category",
             "purchase_price",
             "created_at",
+            "publication_status",
         ]
+        # exclude = ["publication_status"]
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -86,3 +89,10 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ["name", "description"]
+
+
+class ProductModeratorForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
+        exclude = ["publication_status"]
