@@ -6,12 +6,14 @@ from django.views.decorators.cache import cache_page
 from blog.views import BlogPostListView
 from catalog.apps import CatalogConfig
 from catalog.views import (
+    CategoryListView,
     ContactsView,
     HomeView,
     ProductCreateView,
     ProductDeleteView,
     ProductDetailView,
-    ProductUpdateView, ProductsByCategoryListView, CategoryListView,
+    ProductsByCategoryListView,
+    ProductUpdateView,
 )
 
 app_name = CatalogConfig.name
@@ -37,5 +39,9 @@ urlpatterns = [
     ),
     path("product_create/", ProductCreateView.as_view(), name="product_create"),
     path("category/", CategoryListView.as_view(), name="category"),
-    path('category/<str:category_name>/', ProductsByCategoryListView.as_view(), name='products_by_category'),
+    path(
+        "category/<str:category_name>/",
+        ProductsByCategoryListView.as_view(),
+        name="products_by_category",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

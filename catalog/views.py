@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponseForbidden
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -13,8 +12,8 @@ from django.views.generic import (
 )
 
 from catalog.forms import ProductForm, ProductModeratorForm
-from catalog.models import Product, Category
-from catalog.services import get_products_from_cache, get_products_by_category
+from catalog.models import Category, Product
+from catalog.services import get_products_by_category, get_products_from_cache
 
 
 class HomeView(ListView):
@@ -27,10 +26,13 @@ class HomeView(ListView):
 class ContactsView(TemplateView):
     template_name = "catalog/contacts.html"
 
+
 class CategoryListView(ListView):
-    """ Страница категории """
+    """Страница категории"""
+
     model = Category
     template_name = "catalog/categories_list.html"
+
 
 class ProductsByCategoryListView(LoginRequiredMixin, ListView):
     model = Category
