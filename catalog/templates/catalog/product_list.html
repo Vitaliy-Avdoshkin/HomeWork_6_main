@@ -1,0 +1,34 @@
+{% extends 'catalog/home.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for product in object_list %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ product.photo | media_filter }}">
+            <div class="card-body">
+              <p class="card-text"> Товар: {{product.name}}</p>
+              <p class="card-text"> Описание товара: {{product.description}}</p>
+              <p class="card-text"> Категория товара: {{product.category}}</p>
+              <p class="card-text"> Цена: {{product.purchase_price}}</p>
+              <p class="card-text"> Дата создания: {{product.created_at}}</p>
+              <p class="card-text"> Дата последнего редактирования: {{product.updated_at}}</p>
+              <p class="card-text"> {{product.publication_status}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="ms-2">
+                  <a class="btn btn-primary" href="{% url 'catalog:product_details' product.pk %}" role="button">Просмотр</a>
+                  {% if perms.catalog.can_unpublish_product or product.owner == object.user.email %}
+                  <a class="btn btn-primary" href="{% url 'catalog:product_update' product.pk %}" role="button">Редактировать</a>
+                  <a class="btn btn-primary" href="{% url 'catalog:product_delete' product.pk %}" role="button">Удалить</a>
+                  {% endif %}
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

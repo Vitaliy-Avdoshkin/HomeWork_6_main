@@ -22,24 +22,30 @@ git clone https://github.com/Vitaliy-Avdoshkin/vitaliy_avdoshkin_CourseWork_5
 poetry env
 ```
 
-2. Установите библиотеку django, используя следующую команду
-
+2. Установите следующие библиотеки, используя соответствующие команды:
+ - библиотека django
 ```commandline
 poetry add django
 ```
-
-3. Создайте файл .flake8 для настройки библиотеки flak8
-
-
-4. Настройте установленные библиотеки, используя кода ниже
-
-Файл .flake8
-
+- библиотека psycopg2
+```commandline
+poetry add psycopg2-binary
+или
+pip install psycopg2
 ```
-[flake8]
-max-line-length = 119
+- библиотека dotenv
+```commandline
+poetry add python-dotenv
+или
+pip install python-dotenv
+```
+- библиотека Pillow
+```commandline
+poetry add pillow
+```
+3. Создайте приложение catalog, используя код ниже
+```commandline
+ python manage.py startapp catalog
 ```
 
 
-
-# Модули
