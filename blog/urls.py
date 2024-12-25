@@ -1,7 +1,6 @@
 from django.urls import path
 
 from blog.apps import BlogConfig
-from catalog.views import HomeView
 
 from .views import (
     BlogPostCreateView,
